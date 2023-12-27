@@ -1,9 +1,9 @@
-const mysql = require('mysql12');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'your_password',
+    password: 'Fit4li$e',
     database: 'employee_db',
 });
 
