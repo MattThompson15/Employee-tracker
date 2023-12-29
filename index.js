@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+
 const { 
     viewDepartments,
     viewRoles,
@@ -6,6 +7,7 @@ const {
     addDepartment,
     addRole,
     addEmployee,
+    updateEmployeeRole,
  } = require('./queries/employeeQuerries')
 
 const mainMenu = async () => {
@@ -39,24 +41,37 @@ const mainMenu = async () => {
             viewEmployees();
             break;
         case 'Add a department':
-            addDepartment();
+            await addDepartment();
             break;
         case 'Add a role':
-            addRole();
+             await addRole();
             break;
         case 'Add an employee':
-            addEmployee();
+            await addEmployee();
             break;
         case 'Update an employee role':
-            updateEmployeeRole();
+            await updateEmployeeRole();
             break;
         case 'Exit':
             process.exit();
            default:
             console.log('Invalid choice. Please try again');
-            mainMenu();
+            break;
+    }
+
+    const {goBack } = await inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'goBack',
+            message: 'Do you want to go back to the main menu?',
+            default: true,
+        },
+    ]);
+
+    if (goBack) {
+        await mainMenu();
     }
 
 };
-
+    
 mainMenu();
