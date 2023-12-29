@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const { viewDepartments } = require('./querries/employeeQuerries')
+const { viewDepartments } = require('./queries/employeeQuerries')
 
 const mainMenu = async () => {
     const { choice } = await inquirer.prompt([
