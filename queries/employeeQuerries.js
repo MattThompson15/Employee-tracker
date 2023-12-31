@@ -101,7 +101,16 @@ const addEmployee = async () => {
     }
 
     try {
-        await connection.promise().query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?)', [firstName, lastName, roleId, managerId]);
+
+        const query = managerId
+            ? 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)'
+            : 'INSERT INTO employee (first_name, last_name, role_id) VALUES (?, ?, ?)';
+
+        const values = managerId
+            ?[firstName, lastName, roleId, managerId]
+            : [firstName, lastName, roleId];
+        
+        await connection.promise().query(query, values);
         console.log(`Employee "${firstName} ${lastName}" added successfully.`);
     } catch (error) {
         console.error('Error adding employee', error);
