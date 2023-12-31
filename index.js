@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-
+// DEescription: Main entry point for the employee tracker app
 const { 
     viewDepartments,
     viewRoles,
@@ -9,6 +9,7 @@ const {
     addEmployee,
     updateEmployeeRole,
  } = require('./queries/employeeQuerries')
+// Main menu function
 
 const mainMenu = async () => {
     const { choice } = await inquirer.prompt([
@@ -73,5 +74,5 @@ const mainMenu = async () => {
     }
 
 };
-    
+// Initialze the main menu
 mainMenu();

@@ -1,6 +1,8 @@
+//Description: Contains queries and functions related to employee management.
 const connection = require('../assets/connection');
 const inquirer = require('inquirer');
 
+// View all departments in the database.(function)
 const viewDepartments = async () => {
     try {
         const [rows] = await connection.promise().query('SELECT * FROM department');
@@ -9,7 +11,7 @@ const viewDepartments = async () => {
         console.error('Error viewing departments', error);
     }
 };
-
+// View all roles in the database.(function)
 const viewRoles = async () => {
     try {
         const [rows] = await connection.promise().query('SELECT * FROM role');
@@ -18,7 +20,7 @@ const viewRoles = async () => {
         console.error('ERROR viewing roles', error);
     }
 };
-
+// View all employees in the database(function)
 const viewEmployees = async () => {
     try {
         const [rows] = await connection.promise().query('SELECT * FROM employee');
@@ -27,7 +29,7 @@ const viewEmployees = async () => {
         console.error('Error viewing employees', error);
     }
 };
-
+// Add a dnew department to the database(function)
 const addDepartment = async () => {
     const { departmentName } = await inquirer.prompt([
         {
@@ -44,7 +46,7 @@ const addDepartment = async () => {
         console.error('Error adding department:', error);
     }
 };
-
+// Add a new role to the database(function)
 const addRole = async () => {
     const { title, salary, departmentId } = await inquirer.prompt([
         {
@@ -71,7 +73,7 @@ const addRole = async () => {
         console.error('Error adding role:', error);
     }
 };
-
+// Add a new employee to the database(function)
 const addEmployee = async () => {
     const { firstName, lastName, roleId, managerId } = await inquirer.prompt([
         {
@@ -116,7 +118,7 @@ const addEmployee = async () => {
         console.error('Error adding employee', error);
     }
 };
-   
+// Update the role of an existing employee(function)  
 const updateEmployeeRole = async () => {
     const employees = await connection.promise().query('SELECT * FROM employee');
     const roles = await connection.promise().query('SELECT * FROM role');
@@ -157,7 +159,7 @@ const updateEmployeeRole = async () => {
         console.error('Error updating employee role:', error);
     }
 ;}
-
+// Export all functions for use in other files
 module.exports = {
     viewDepartments,
     viewRoles,
