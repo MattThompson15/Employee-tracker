@@ -21,6 +21,10 @@ Contributions are welcome! If you have any suggestions, improvements, or issues,
 
 <img width="1440" alt="Screenshot 2023-12-30 at 9 59 19 PM" src="https://github.com/MattThompson15/Employee-tracker/assets/139708928/12be475a-80eb-4a10-bf10-53f517947fa4">
 
+![image](https://github.com/MattThompson15/Employee-tracker/assets/139708928/4f65ab7c-5bba-480a-a7f7-85345971cbee)
+
+
+
 ## License
 MIT License
 
