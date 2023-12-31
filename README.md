@@ -12,9 +12,16 @@ This is a simple Employee Tracker application that allows you to manage departme
 * To run the application use the command "node index.js".
 * Follow the prompts to view departments, roles, and employees, add new entries, or update employee roles.
 
+## Technologies Used
+
+* node.js
+* inquirer.js
+* mysql2
+* Visual Studio Code
+
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, improvements, or issues, please open an issue or create a pull request.
+Contributions are welcome! If you have any suggestions, improvements, or issues, please open an issue or create a pull request.  
 
 ## Screen Shots
 <img width="1440" alt="Screenshot 2023-12-30 at 9 59 05 PM" src="https://github.com/MattThompson15/Employee-tracker/assets/139708928/2099ccd7-9567-4ae5-92a7-63ce95b241b8">
@@ -23,6 +30,9 @@ Contributions are welcome! If you have any suggestions, improvements, or issues,
 
 ![image](https://github.com/MattThompson15/Employee-tracker/assets/139708928/4f65ab7c-5bba-480a-a7f7-85345971cbee)
 
+## Recording of app functionality
+
+https://drive.google.com/file/d/16NhcBvHe_bH5D6vNb9Q6EEBZRzNx57LO/view
 
 
 ## License
