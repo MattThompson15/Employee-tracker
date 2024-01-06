@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-// DEescription: Main entry point for the employee tracker app
+// Description: Main entry point for the employee tracker app
 const { 
     viewDepartments,
     viewRoles,
@@ -8,6 +8,9 @@ const {
     addRole,
     addEmployee,
     updateEmployeeRole,
+    getDepartmentChoices,
+    getRoleChoices,
+
  } = require('./queries/employeeQuerries')
 // Main menu function
 
@@ -45,17 +48,17 @@ const mainMenu = async () => {
             await addDepartment();
             break;
         case 'Add a role':
-             await addRole();
+             await addRole(getDepartmentChoices);
             break;
         case 'Add an employee':
-            await addEmployee();
+            await addEmployee(getRoleChoices);
             break;
         case 'Update an employee role':
             await updateEmployeeRole();
             break;
         case 'Exit':
             process.exit();
-           default:
+        default:
             console.log('Invalid choice. Please try again');
             break;
     }

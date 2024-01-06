@@ -1,6 +1,36 @@
 //Description: Contains queries and functions related to employee management.
+const mysql = require('mysql2');
 const connection = require('../assets/connection');
 const inquirer = require('inquirer');
+
+// Function to get dynamic list of department choices
+const getDepartmentChoices = async () => {
+    try {
+        const [rows] = await connection.promise().query('SELECT id, name FROM department');
+        return rows.map(department => ({
+            name: department.name,
+            value: department.id,
+        }));
+    } catch (error) {
+        console.error('Error getting department choices:', error);
+        return [];
+    }
+};
+
+// Function to get dynamic list of role choices
+const getRoleChoices = async () => {
+    try {
+        const [rows] = await connection.promise().query('SELECT id, title FROM role');
+        return rows.map(role => ({
+            name: role.title,
+            value: role.id,
+        }));
+    } catch (error) {
+        console.error('Error getting role choices:', error);
+        return [];
+    }
+};
+    
 
 // View all departments in the database.(function)
 const viewDepartments = async () => {
@@ -168,4 +198,6 @@ module.exports = {
     addRole,
     addEmployee,
     updateEmployeeRole,
+    getDepartmentChoices,
+    getRoleChoices,
 };
